@@ -73,26 +73,6 @@ Response B provides a more complete and secure implementation. It includes prote
 - Client-side rendering of third-party geocoding labels could include stronger explicit sanitization or truncation safeguards.
 - Test coverage and seed data workflows are not fully specified.
 
-## Detailed Justification
-
-Response B is preferred because it handles the highest-risk parts of the prompt more reliably. The RideJunto application depends on secure authentication, protected ride history, dynamic map interaction, and location-driven ride requests. Response A has meaningful coverage of the requested stack, but its unprotected ride endpoints and broken signup token flow create direct product failures.
-
-The map experience is another decisive factor. The prompt requires selected coordinates to update the map and place markers. Response A's static map behavior makes the central dashboard feel decorative rather than functional. Response B's map refocus behavior and Leaflet marker fix make it better aligned with the required user journey from location selection to ride matching.
-
-Response B is not perfect. Its ride matching implementation still needs deeper production logic, real driver availability, and stronger deployment/testing guidance. However, compared with Response A, it provides a more secure, coherent, and usable foundation.
-
-## Recommended Evaluation Process
-
-Use the following process when judging similar responses:
-
-1. Verify that the required technology stack is used.
-2. Check whether core user flows work end to end.
-3. Prioritize security failures over cosmetic completeness.
-4. Confirm that map state updates from selected autocomplete coordinates.
-5. Confirm that authentication protects sensitive ride endpoints.
-6. Distinguish implemented features from described or simulated features.
-7. Review whether the documentation is actionable for local setup and deployment.
-
 ## Conclusion
 
 Response B is the better response because it provides a more secure authentication flow, better protected ride management, stronger map behavior, and a more coherent implementation. Response A is relevant and broadly structured, but it contains blocking issues that would prevent the app from meeting the prompt's production-grade expectations.
